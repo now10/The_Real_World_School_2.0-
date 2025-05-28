@@ -1,0 +1,22 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 28 May 2025 06:35:21 at https://cobra-tate.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://cobra-tate.com -O1 "C:\Users\HP\Documents\File\WEBSITE\NEW ANDREW TATE" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+06:36:34	Warning: 	Retry after error -5 (error:00000001:lib(0):func(0):reason(1)) at link https://code.tidio.co:443/oscr8qyl8x4chu7whzqqnfvrq99po9oe.js (from https://cobra-tate.com/)
+06:36:34	Warning: 	Retry after error -4 (No data (connection closed)) at link https://cobra-tate.com/wp-content/uploads/matomo/container_mojN7KTG.js (from https://cobra-tate.com/)
+06:36:34	Error: 	"Bad Request" (400) at link https://www.googletagmanager.com/gtm.js?id= (from https://cobra-tate.com/)
+06:36:57	Warning: 	Retry after error -5 (error:00000001:lib(0):func(0):reason(1)) at link https://code.tidio.co:443/oscr8qyl8x4chu7whzqqnfvrq99po9oe.js (from https://cobra-tate.com/)
+06:36:57	Error: 	"Not Found" (404) at link https://cobra-tate.com/images/Matrix-BG-1-1_1Matrix BG 1 (1 (from https://cobra-tate.com/css/hu-4-0.css)
+06:36:58	Error: 	"Not Found" (404) at link https://cobra-tate.com/%2263234a846c8cfe190247a6b7/637651211670d35c97f1ab57_LiveChat%20Video%20Desktop-poster-00001.jpg (from https://cobra-tate.com/support)
+06:36:58	Error: 	"error:00000001:lib(0):func(0):reason(1)" (-5) after 2 retries at link https://code.tidio.co:443/oscr8qyl8x4chu7whzqqnfvrq99po9oe.js (from https://cobra-tate.com/)
+06:36:58	Warning: 	Retry after error -4 (Incorrect length (77722 Bytes, 470138 expected)) at link https://cobra-tate.com/63234a846c8cfe190247a6b7/633b4aa550de1323716feb31_matrix2000x2000.webp (from https://cobra-tate.com/63234a846c8cfe190247a6b7/css/the-real-world.webflow.181039cb6.min.css)
+06:36:58	Warning: 	Retry after error -4 (No data (connection closed)) at link https://cobra-tate.com/63234a846c8cfe190247a6b7/636fc25e71bc7374d6a2d00e_waves-bg-compressed.png (from https://cobra-tate.com/63234a846c8cfe190247a6b7/css/the-real-world.webflow.181039cb6.min.css)
+06:36:58	Warning: 	Retry after error -4 (No data (connection closed)) at link https://cobra-tate.com/63234a846c8cfe190247a6b7/63750419ee61c99663b60322_matrix bg bw compress.jpg (from https://cobra-tate.com/63234a846c8cfe190247a6b7/css/the-real-world.webflow.181039cb6.min.css)
+06:36:59	Warning: 	Retry after error -4 (No data (connection closed)) at link https://cobra-tate.com/63234a846c8cfe190247a6b7/633b4aa550de1323716feb31_matrix2000x2000.webp (from https://cobra-tate.com/63234a846c8cfe190247a6b7/css/the-real-world.webflow.181039cb6.min.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 45 seconds : 146 links scanned, 134 files written (12523333 bytes overall) [11264072 bytes received at 107276 bytes/sec], 2020735 bytes transferred using HTTP compression in 19 files, ratio 21%, 7.7 requests per connection
+(4 errors, 7 warnings, 0 messages)
